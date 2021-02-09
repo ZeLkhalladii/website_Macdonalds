@@ -1,0 +1,43 @@
+<br><br>
+<div class="container">
+    <center>
+        <h1 style="color: red;">choixLangue</h1>
+        <img src="https://viaverbia.be/sites/viaverbia-belgium.be/files/styles/news_image/public/images/articles/rangschikking%20van%20de%205%20meest%20gesproken%20talen%20in%20de%20wereld.jpg?itok=TYC-6ADJ" alt="........" style="width: 40%;"><br> <br>
+        <input type="button" style="background-color: #FDC82F; border:red"  value="اللغة العربية" class="btn btn-outline-secondary" onclick="AR()">
+        <input type="button" style="background-color: #FDC82F; border:red"   value="Langue française" class="btn btn-outline-secondary" onclick="FR()">
+        <input type="button" style="background-color: #FDC82F; border:red"  value="language English" class="btn btn-outline-secondary" onclick="AN()">
+    </center>
+
+</div>
+
+<script>
+    function AR(){
+        if (typeof(Storage) !== "undefined") {
+            // Store
+            sessionStorage.setItem("langue", "AR");
+        } else {
+            alert("Sorry, your browser does not support Web Storage...");
+        }
+        window.location.assign("http://localhost:3000/modeCommande");
+    }
+
+    function FR(){
+        if (typeof(Storage) !== "undefined") {
+            // Store
+            sessionStorage.setItem("langue", "FR");
+        } else {
+            alert("Sorry, your browser does not support Web Storage...");
+        }
+        window.location.assign("http://localhost:3000/modeCommande");
+    }
+
+    function AN(){
+        if (typeof(Storage) !== "undefined") {
+            // Store
+            sessionStorage.setItem("langue", "AN");
+        } else {
+            alert("Sorry, your browser does not support Web Storage...");
+        }
+        window.location.assign("http://localhost:3000/modeCommande");
+    }
+</script>

@@ -1,0 +1,57 @@
+
+
+<br><br>
+<div class="container">
+    <center>
+        <h1 style="color: #FDC82F;">Mode De La Commande</h1>
+        <img src="https://www.linfodurable.fr/sites/linfodurable/files/styles/landscape_w800/public/2019-03/shutterstock_1023412000.jpg?h=68a5e204&itok=HOpFPvD8" alt="" srcset="" style="width: 500px; border-radius:20px;"><br><br>
+        <div id="contentmodecommande">
+    
+        </div>
+    </center>
+</div>
+
+<script>
+
+    function onload_start(){
+
+        if (typeof(Storage) !== "undefined") {
+            // Retrieve
+            //FRANCAIS
+            if(sessionStorage.getItem("langue") == "FR"){
+
+                document.getElementById("contentmodecommande").innerHTML = '<input type="button" value="sur place" class="btn btn-outline-secondary" onclick="sur_place()" style="background-color: #FDC82F; border:red"> <input type="button" value="emporter" class="btn btn-outline-secondary" onclick="emporter()" style="background-color: #FDC82F; border:red">';
+                
+            }else if(sessionStorage.getItem("langue") == "AN"){
+                //ANGLISH
+                document.getElementById("contentmodecommande").innerHTML = '<input type="button" value="on the spot" class="btn btn-outline-secondary" onclick="sur_place()" style="background-color: #FDC82F; border:red"> <input type="button" value="carry" class="btn btn-outline-secondary" onclick="emporter()" style="background-color: #FDC82F; border:red">';
+            }else if(sessionStorage.getItem("langue") == "AR"){
+                //alert("aarr");
+                document.getElementById("contentmodecommande").innerHTML = '<input type="button" value="هنا بالموقع" class="btn btn-outline-secondary" onclick="sur_place()" style="background-color: #FDC82F; border:red"> <input type="button" value="تاخده معك" class="btn btn-outline-secondary" onclick="emporter()" style="background-color: #FDC82F; border:red">';
+            }
+        } else {
+            alert("Sorry, your browser does not support Web Storage...");
+        }
+    }
+
+
+    function sur_place(){
+        if (typeof(Storage) !== "undefined") {
+            // Store
+            sessionStorage.setItem("modeCommande", "sur_place");
+        } else {
+            alert("Sorry, your browser does not support Web Storage...");
+        }
+        window.location.assign("http://localhost:3000/home");
+    }
+
+    function emporter(){
+        if (typeof(Storage) !== "undefined") {
+            // Store
+            sessionStorage.setItem("modeCommande", "emporter");
+        } else {
+            alert("Sorry, your browser does not support Web Storage...");
+        }
+        window.location.assign("http://localhost:3000/home");
+    }
+</script>

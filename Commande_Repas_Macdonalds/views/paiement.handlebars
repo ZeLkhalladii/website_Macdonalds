@@ -1,0 +1,88 @@
+<br>
+<center>
+    <img src="https://mironlab.com/wp-content/uploads/2018/06/Paiement-paypal-et-CB.jpg" alt="" srcset="" style="width: 50%;"><br><br>
+    <button type="button" style="background-color: #FDC82F;"  class="btn btn-info btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Choisir le mode de paiement</button></center>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <center>
+            <div class="modal-content">
+                
+                    <div class="modal-body">
+                        
+                        <button type="button" class="btn btn-outline-success" onclick="carte_bancaire()">carte bancaire</button>
+                        <button type="button" class="btn btn-outline-success" onclick="espece()">espèce</button>
+                        
+                    </div>
+            </div>
+        </center>
+  </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div id="content_espece">
+            <center style="margin-top:0px">
+                <h1>TOTAL : <span id="prixtotal1"></span> DH</h1>
+                <h1>Payez s'il vous plait : </h1>
+                <h2>Numero de table : <span id="numtabl1"></span></h2>
+                <div class="d-grid gap-2">
+                    <a href="/confirmation" class="btn btn-warning">PAYER</a>
+                </div>
+            </center>
+        </div>
+        <div id="content_carte_bancaire">
+            <center style="margin-top:0px">
+                <h1>TOTAL : <span id="prixtotal2"></span> DH</h1>
+                <h1>Num carte bancaire :</h1>
+                <input type="text" class="" id="num_cart">
+                <h2>Numero de table : <span id="numtabl2"></span></h2>
+                <div class="d-grid gap-2">
+                    <a href="/confirmation" class="btn btn-warning">PAYER</a>
+                </div>
+                
+            </center>
+        </div>
+    </div>
+</div>
+
+<script>
+    var content_espece = document.getElementById("content_espece");
+    var content_carte_bancaire = document.getElementById("content_carte_bancaire");
+    var numtabl1 = document.getElementById("numtabl1");
+    var numtabl2 = document.getElementById("numtabl2");
+
+    function onload_start(){
+        content_espece.style.display = 'none';
+        content_carte_bancaire.style.display = 'none';
+
+        document.getElementById("prixtotal1").innerHTML = localStorage.getItem("PrixTotal");
+        document.getElementById("prixtotal2").innerHTML = localStorage.getItem("PrixTotal");
+
+        if(sessionStorage.getItem("modeCommande") == "sur_place"){
+            if(localStorage.getItem('num_place') == null){
+                localStorage.setItem("num_place", 1);
+                numtabl1.innerHTML = 1;
+                numtabl2.innerHTML = 1;
+            }else{
+                var num_place_actuellement = localStorage.getItem('num_place');
+                num_place_actuellement = parseFloat(num_place_actuellement) + 1;
+                //localStorage.setItem("num_place", num_place_actuellement);
+                numtabl1.innerHTML = num_place_actuellement;
+                numtabl2.innerHTML = num_place_actuellement;
+            }
+        }
+    }
+    function carte_bancaire(){
+        //alert("carte_bancaire");
+        content_espece.style.display = 'none';
+        content_carte_bancaire.style.display = 'block';
+
+    }function espece(){
+        //alert("espece");
+        content_espece.style.display = 'block';
+        content_carte_bancaire.style.display = 'none';
+
+    }
+</script>
+
