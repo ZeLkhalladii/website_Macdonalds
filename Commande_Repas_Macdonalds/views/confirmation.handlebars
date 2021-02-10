@@ -1,0 +1,250 @@
+<br>
+<section>
+    <div class="dropdown" style="float: right;">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+            <span id="texts_Langue"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+            <li><a class="dropdown-item"  onclick="switch_langage('AR')"><span id="text_langue_AR">العربية</span></a></li>
+            <li><a class="dropdown-item" onclick="switch_langage('AN')"><span id="text_langue_AN">anglais</span></a></li>
+            <li><a class="dropdown-item" onclick="switch_langage('FR')"><span id="text_langue_FR">français</span></a></li>
+        </ul>
+    </div>
+</section>
+<br>
+<br>
+<br>
+<div class="container">
+    <center>
+        <h1 style="color: red;" id="text_Votre_Recu">Votre Reçu</h1>
+    </center>
+    <div class="row">
+        <div class="col">
+
+        </div>
+        <div class="col-md-auto">
+
+        </div>
+        <div class="col col-lg-2">
+            <button id="imprime_pdf" type="button" class="btn btn-warning">Imprimer PDF</button>
+        </div>
+    </div>
+</div>
+
+
+<div class="container" id="i1">
+
+    <table class="table" id="i2">
+        <thead>
+            <tr>
+                <img src="" alt="">
+                <th scope="col"><span id="text_image"></span></th>
+                <th scope="col"><span id="text_Name_prodact"></span></th>
+                <th scope="col"><span id="text_Name_contity"></span></th>
+                <th scope="col"><span id="text_prix"></span></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody id="body_table">
+
+        </tbody>
+    </table>
+
+</div>
+
+
+
+<script>
+    function onload_start() {
+        if (typeof(Storage) !== "undefined") {
+            // Retrieve
+            if(sessionStorage.getItem("langue") == "FR"){
+
+                document.getElementById("texts_Langue").innerHTML = "Langue";
+                
+                
+                document.getElementById("text_Votre_Recu").innerHTML = "Votre Reçu";
+                
+                document.getElementById("imprime_pdf").innerHTML = "imprimer pdf";
+                document.getElementById("text_image").innerHTML = "image";
+                document.getElementById("text_Name_prodact").innerHTML = "nom du produit";
+                document.getElementById("text_Name_contity").innerHTML = "quantité";
+                document.getElementById("text_prix").innerHTML = "prix";
+                switch_langage('FR');
+                
+                document.getElementById("text_navbar_panier").innerHTML = "panier : ";
+                document.getElementById("text_navbar_Langue").innerHTML = "Langue";
+                document.getElementById("text_navbar_Accueil").innerHTML = "Accueil / Tous";
+
+            }else if(sessionStorage.getItem("langue") == "AN"){
+
+                //document.getElementById("text_mode_paiment").innerHTML = "Choose payment method";
+                document.getElementById("texts_Langue").innerHTML = "Language";
+                document.getElementById("text_Votre_Recu").innerHTML = "Your Receipt";
+                document.getElementById("imprime_pdf").innerHTML = "print pdf";
+                document.getElementById("text_image").innerHTML = "picture";
+                document.getElementById("text_Name_prodact").innerHTML = "product name";
+                document.getElementById("text_Name_contity").innerHTML = "quantity";
+                document.getElementById("text_prix").innerHTML = "price";
+                switch_langage('AN');
+                document.getElementById("text_navbar_panier").innerHTML = "basket : ";
+                document.getElementById("text_navbar_Langue").innerHTML = "Language";
+                document.getElementById("text_navbar_Accueil").innerHTML = "Home / All";
+
+            }else if(sessionStorage.getItem("langue") == "AR"){
+
+                document.getElementById("texts_Langue").innerHTML = "اللغة";
+                document.getElementById("text_Votre_Recu").innerHTML = "ايصالك";
+                document.getElementById("imprime_pdf").innerHTML = "طباعة pdf";
+                document.getElementById("text_image").innerHTML = "صورة";
+                document.getElementById("text_Name_prodact").innerHTML = "اسم المنتج";
+                document.getElementById("text_Name_contity").innerHTML = "الكمية";
+                document.getElementById("text_prix").innerHTML = "السعر";
+                switch_langage('AR');
+                document.getElementById("text_navbar_panier").innerHTML = "السلة : ";
+                document.getElementById("text_navbar_Langue").innerHTML = "اللغة";
+                document.getElementById("text_navbar_Accueil").innerHTML = "القائمة رئيسية / الكل";
+            }
+        } else {
+            alert("Sorry, your browser does not support Web Storage...");
+        }
+
+        if (sessionStorage.getItem("modeCommande") == "sur_place") {
+            if (localStorage.getItem('num_place') == null) {
+                localStorage.setItem("num_place", 1);
+            } else {
+                var num_place_actuellement = localStorage.getItem('num_place');
+                num_place_actuellement = parseFloat(num_place_actuellement) + 1;
+                localStorage.setItem("num_place", num_place_actuellement);
+            }
+        }
+
+        document.getElementById("imprime_pdf").addEventListener("click", () => {
+            const invoice = this.document.getElementById("i1");
+            console.log(invoice);
+            console.log(window);
+
+            html2pdf().from(invoice).save();
+            localStorage.clear();
+        });
+        const invoice = this.document.getElementById("i1");
+        console.log(invoice);
+        console.log(window);
+
+        html2pdf().from(invoice).save();
+        localStorage.clear();
+
+
+
+    }
+
+    function switch_langage(langue){
+        var langage = langue;
+        if (typeof(Storage) !== "undefined") {
+            if(langage == "FR"){
+                document.getElementById("text_Votre_Recu").innerHTML = "Votre Reçu";
+                document.getElementById("imprime_pdf").innerHTML = "imprimer pdf";
+                document.getElementById("text_image").innerHTML = "image";
+                document.getElementById("text_Name_prodact").innerHTML = "nom du produit";
+                document.getElementById("text_Name_contity").innerHTML = "quantité";
+                document.getElementById("text_prix").innerHTML = "prix";
+                document.getElementById("text_navbar_panier").innerHTML = "panier : ";
+                document.getElementById("text_navbar_Langue").innerHTML = "Langue";
+                document.getElementById("text_navbar_Accueil").innerHTML = "Accueil / Tous";
+
+                var body_table = document.getElementById("body_table");
+
+                let old_data = JSON.parse(localStorage.getItem('data'));
+                var prixOneProdact = 0;
+                var prixProdactTotal = 0;
+                body_table.innerHTML = "";
+
+                for (i = 0; i < old_data.length; i++) {
+                    prixOneProdact = (old_data[i].prixData) * (old_data[i].contityData);
+                    prixProdactTotal = prixProdactTotal + prixOneProdact;
+                    body_table.innerHTML += '<tr><td><img src="/images/' + old_data[i].imgchemainData + '/../' + old_data[i].imgData + '" alt=""></td> <td>' + old_data[i].nameData + '  <br><input type="hidden" id="prixOneProdactData2' + i + '" value="' + old_data[i].prixData + '">   <p><span id="prixOneProdactData' + i + '" >' + old_data[i].prixData + '</span> <span> DH </span></p></td> <td><p>' + old_data[i].contityData + '</p>   </td> <td><p id="prixOneProdact' + i + '">' + prixOneProdact + ' DH</p>  <input type="hidden" id="prixOneProdact2' + i + '" value="' + prixOneProdact + '"></tr>';
+                    prixOneProdact = 0;
+                }
+                body_table.innerHTML += '<tr><p style="color:red;">Prix Total : <span id="prixtotal">' + prixProdactTotal + '</span> DH</p><input type="hidden" id="prixtotal2" value="' + prixProdactTotal + '"></tr>';
+
+                if (localStorage.getItem('PrixTotal') == null) {
+
+                    localStorage.setItem("PrixTotal", prixProdactTotal);
+                }
+
+
+                sessionStorage.setItem("langue", "FR");
+            }else if(langage == "AN"){
+                document.getElementById("text_Votre_Recu").innerHTML = "Your Receipt";
+                document.getElementById("imprime_pdf").innerHTML = "print pdf";
+                document.getElementById("text_image").innerHTML = "picture";
+                document.getElementById("text_Name_prodact").innerHTML = "product name";
+                document.getElementById("text_Name_contity").innerHTML = "quantity";
+                document.getElementById("text_prix").innerHTML = "price";
+                document.getElementById("text_navbar_panier").innerHTML = "basket : ";
+                document.getElementById("text_navbar_Langue").innerHTML = "Language";
+                document.getElementById("text_navbar_Accueil").innerHTML = "Home / All";
+
+                var body_table = document.getElementById("body_table");
+
+                let old_data = JSON.parse(localStorage.getItem('data'));
+                var prixOneProdact = 0;
+                var prixProdactTotal = 0;
+                body_table.innerHTML = "";
+
+                for (i = 0; i < old_data.length; i++) {
+                    prixOneProdact = (old_data[i].prixData) * (old_data[i].contityData);
+                    prixProdactTotal = prixProdactTotal + prixOneProdact;
+                    body_table.innerHTML += '<tr><td><img src="/images/' + old_data[i].imgchemainData + '/../' + old_data[i].imgData + '" alt=""></td> <td>' + old_data[i].nameDataAN + '  <br><input type="hidden" id="prixOneProdactData2' + i + '" value="' + old_data[i].prixData + '">   <p><span id="prixOneProdactData' + i + '" >' + old_data[i].prixData + '</span> <span> DH </span></p></td>  <td><p>' + old_data[i].contityData + '</p>   </td> <td><p id="prixOneProdact' + i + '">' + prixOneProdact + ' DH</p>  <input type="hidden" id="prixOneProdact2' + i + '" value="' + prixOneProdact + '"></tr>';
+                    prixOneProdact = 0;
+                }
+                body_table.innerHTML += '<tr><p style="color:red;">Total price : <span id="prixtotal">' + prixProdactTotal + '</span> DH</p><input type="hidden" id="prixtotal2" value="' + prixProdactTotal + '"></tr>';
+
+                if (localStorage.getItem('PrixTotal') == null) {
+
+                    localStorage.setItem("PrixTotal", prixProdactTotal);
+                }
+
+
+                sessionStorage.setItem("langue", "AN");
+            }else if(langage == "AR"){
+                document.getElementById("text_Votre_Recu").innerHTML = "ايصالك";
+                document.getElementById("imprime_pdf").innerHTML = "طباعة pdf";
+                document.getElementById("text_image").innerHTML = "صورة";
+                document.getElementById("text_Name_prodact").innerHTML = "اسم المنتج";
+                document.getElementById("text_Name_contity").innerHTML = "الكمية";
+                document.getElementById("text_prix").innerHTML = "السعر";
+                document.getElementById("text_navbar_panier").innerHTML = "السلة : ";
+                document.getElementById("text_navbar_Langue").innerHTML = "اللغة";
+                document.getElementById("text_navbar_Accueil").innerHTML = "القائمة رئيسية / الكل";
+
+                var body_table = document.getElementById("body_table");
+
+                let old_data = JSON.parse(localStorage.getItem('data'));
+                var prixOneProdact = 0;
+                var prixProdactTotal = 0;
+                body_table.innerHTML = "";
+
+                for (i = 0; i < old_data.length; i++) {
+                    prixOneProdact = (old_data[i].prixData) * (old_data[i].contityData);
+                    prixProdactTotal = prixProdactTotal + prixOneProdact;
+                    body_table.innerHTML += '<tr><td><img src="/images/' + old_data[i].imgchemainData + '/../' + old_data[i].imgData + '" alt=""></td> <td>' + old_data[i].nameDataAR + '  <br><input type="hidden" id="prixOneProdactData2' + i + '" value="' + old_data[i].prixData + '">   <p><span id="prixOneProdactData' + i + '" >' + old_data[i].prixData + '</span> <span> DH </span></p></td>  <td><p>' + old_data[i].contityData + '</p>   </td> <td><span>درهم </span><span id="prixOneProdact' + i + '">' + prixOneProdact + '</span>  <input type="hidden" id="prixOneProdact2' + i + '" value="' + prixOneProdact + '"></tr>';
+                    prixOneProdact = 0;
+                }
+                body_table.innerHTML += '<tr><p style="color:red;"> <span>الثمن الاجمالي : </span><span id="prixtotal">' + prixProdactTotal + '</span> درهم</p><input type="hidden" id="prixtotal2" value="' + prixProdactTotal + '"></tr>';
+
+                if (localStorage.getItem('PrixTotal') == null) {
+
+                    localStorage.setItem("PrixTotal", prixProdactTotal);
+                }
+
+
+                sessionStorage.setItem("langue", "AR");
+            }
+        } else {
+            alert("Sorry, your browser does not support Web Storage...");
+        }
+    }
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>

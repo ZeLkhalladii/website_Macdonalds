@@ -1,0 +1,15 @@
+body {
+    background-color: brown;
+}
+.container{
+    background-color: coral;
+}
+
+#btntest{
+    background-color: #bdc3c7;
+    padding: 2% 8%;
+    border-radius: 18%;
+}
+.navbar-brand {
+    color: red !important;
+}

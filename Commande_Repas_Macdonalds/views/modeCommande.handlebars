@@ -1,0 +1,69 @@
+
+
+<br><br>
+<div class="container">
+    <center>
+        <h1 id="text_mode_comamnde" style="color: #FDC82F;"></h1>
+        <img src="https://www.linfodurable.fr/sites/linfodurable/files/styles/landscape_w800/public/2019-03/shutterstock_1023412000.jpg?h=68a5e204&itok=HOpFPvD8" alt="" srcset="" style="width: 500px; border-radius:20px;"><br><br>
+        <div id="contentmodecommande">
+    
+        </div>
+    </center>
+</div>
+
+<script>
+
+    function onload_start(){
+
+        if (typeof(Storage) !== "undefined") {
+            // Retrieve
+            //FRANCAIS
+            if(sessionStorage.getItem("langue") == "FR"){
+
+                document.getElementById("contentmodecommande").innerHTML = '<input type="button" value="sur place" class="btn btn-outline-secondary" onclick="sur_place()" style="background-color: #FDC82F; border:red"> <input type="button" value="emporter" class="btn btn-outline-secondary" onclick="emporter()" style="background-color: #FDC82F; border:red">';
+                document.getElementById("text_mode_comamnde").innerHTML = 'Mode De La Commande';
+                document.getElementById("text_navbar_panier").innerHTML = "panier : ";
+                document.getElementById("text_navbar_Langue").innerHTML = "Langue";
+                document.getElementById("text_navbar_Accueil").innerHTML = "Accueil / Tous";
+                
+            }else if(sessionStorage.getItem("langue") == "AN"){
+                //ANGLISH
+                document.getElementById("contentmodecommande").innerHTML = '<input type="button" value="on the spot" class="btn btn-outline-secondary" onclick="sur_place()" style="background-color: #FDC82F; border:red"> <input type="button" value="carry" class="btn btn-outline-secondary" onclick="emporter()" style="background-color: #FDC82F; border:red">';
+                document.getElementById("text_mode_comamnde").innerHTML = 'request type';
+                document.getElementById("text_navbar_panier").innerHTML = "basket : ";
+                document.getElementById("text_navbar_Langue").innerHTML = "Language";
+                document.getElementById("text_navbar_Accueil").innerHTML = "Home / All";
+            }else if(sessionStorage.getItem("langue") == "AR"){
+                //alert("aarr");
+                document.getElementById("contentmodecommande").innerHTML = '<input type="button" value="هنا بالموقع" class="btn btn-outline-secondary" onclick="sur_place()" style="background-color: #FDC82F; border:red"> <input type="button" value="تاخده معك" class="btn btn-outline-secondary" onclick="emporter()" style="background-color: #FDC82F; border:red">';
+                document.getElementById("text_mode_comamnde").innerHTML = 'نوع الطلب';
+                document.getElementById("text_navbar_panier").innerHTML = "السلة : ";
+                document.getElementById("text_navbar_Langue").innerHTML = "اللغة";
+                document.getElementById("text_navbar_Accueil").innerHTML = "القائمة رئيسية / الكل";
+            }
+        } else {
+            alert("Sorry, your browser does not support Web Storage...");
+        }
+    }
+
+
+    function sur_place(){
+        if (typeof(Storage) !== "undefined") {
+            // Store
+            sessionStorage.setItem("modeCommande", "sur_place");
+        } else {
+            alert("Sorry, your browser does not support Web Storage...");
+        }
+        window.location.assign("http://localhost:3000/home");
+    }
+
+    function emporter(){
+        if (typeof(Storage) !== "undefined") {
+            // Store
+            sessionStorage.setItem("modeCommande", "emporter");
+        } else {
+            alert("Sorry, your browser does not support Web Storage...");
+        }
+        window.location.assign("http://localhost:3000/home");
+    }
+</script>

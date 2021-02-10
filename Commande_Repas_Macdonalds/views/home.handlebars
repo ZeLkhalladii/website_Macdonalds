@@ -1,0 +1,920 @@
+
+<br>
+<section>
+    <div class="dropdown" style="float: right;">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+            <span id="texts_Langue"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+            <li><a class="dropdown-item"  onclick="AR()"><span id="text_langue_AR">العربية</span></a></li>
+            <li><a class="dropdown-item" onclick="AN()"><span id="text_langue_AN">anglais</span></a></li>
+            <li><a class="dropdown-item" onclick="FR()"><span id="text_langue_FR">français</span></a></li>
+        </ul>
+    </div>
+</section>
+<div class="container">
+    <section>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item" style="cursor: pointer;">
+                            <a class="nav-link active" style="color: #FDC82F;"  aria-current="page" id="Tout" onclick="show_tout()">Tout</a>
+                        </li>
+                        <li class="nav-item" style="cursor: pointer;">
+                            <a class="nav-link" style="color: #FDC82F;"  onclick="show_menus()" id="Nos_Menus">Nos Menus</a>
+                        </li>
+                        <li class="nav-item" style="cursor: pointer;">
+                            <a class="nav-link" style="color: #FDC82F;"  onclick="show_sandwichs()" id="Nos_Sandwichs">Nos Sandwichs</a>
+                        </li>
+                        <li class="nav-item" style="cursor: pointer;">
+                            <a class="nav-link" style="color: #FDC82F;"  onclick="show_Petites_faims()" id="Petites_faims">Petites faims</a>
+                        </li>
+                        <li class="nav-item" style="cursor: pointer;">
+                            <a class="nav-link" style="color: #FDC82F;"  onclick="show_salades()" id="Nos_salades">Nos salades</a>
+                        </li>
+                        <li class="nav-item" style="cursor: pointer;">
+                            <a class="nav-link" style="color: #FDC82F;"  onclick="show_desserts()" id="Nos_desserts">Nos desserts</a>
+                        </li>
+                        <li class="nav-item" style="cursor: pointer;">
+                            <a class="nav-link" style="color: #FDC82F;"  onclick="show_boissons()" id="Nos_boissons">Nos boissons</a>
+                        </li>
+                        <li class="nav-item" style="cursor: pointer;">
+                            <a class="nav-link" style="color: #FDC82F;"  onclick="show_frites()" id="Nos_frites">Nos frites</a>
+                        </li>
+                        <li class="nav-item" style="cursor: pointer;">
+                            <a class="nav-link" style="color: #FDC82F;"  onclick="show_sauces()" id="Nos_sauces">Nos sauces</a>
+                        </li>
+                        <li class="nav-item" style="cursor: pointer;">
+                            <a class="nav-link" style="color: #FDC82F;"  onclick="show_McCafe()" id="McCafe">Nos Café</a>
+                        </li>
+                    </ul>
+
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </section><br>
+</div>
+
+    <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+    {{!-- LANGUE FR --}}
+<div class="container Langue_FR">
+    <div class="row ">
+        {{#each menus}}
+
+            <div class="col-4 col-md-2 boxproduct_menu">
+                <a href="/product_menu/nameMenu/{{_id}}" class="btn Commander">
+                    <center>
+                        <img src="/images/imagesmenus/{{imgMenu}}" alt="">
+                        <p>{{nameMenuFR}}</p>
+                        <p>
+                            <span class="prixMenu">{{prixMenu}}</span><span> DH</span>
+                        </p>
+                    </center>
+                </a>
+            </div>
+            <div class="col-4 col-md-2 boxproduct_boissons">
+                <a href="/product_menu/boissons/{{_id}}" class="btn Commander">
+                    <center>
+                        <img src="/images/images_Boissons/{{imgBoissons}}" alt="">
+                        <p>{{boissonsFR}}</p>
+                        <p>
+                            <span class="prixBoissons">{{prixBoissons}}</span><span> DH</span>
+                        </p>
+                    </center>
+                </a>
+            </div>
+
+            <div class="col-4 col-md-2 boxproduct_sandwich">
+                <a href="/product_menu/sandwich/{{_id}}" class="btn">
+                    <center>
+                        <img src="/images/Images_Sandwichs/{{imgSandwich}}" alt="">
+                        <p>{{sandwichFR}}</p>
+                        <p>
+                            <span class="prixSandwich">{{prixSandwich}}</span><span> DH</span>
+                        </p>
+                    </center>
+                </a>
+            </div>
+            <div class="col-4 col-md-2 boxproduct_petitesFaim">
+                <a href="/product_menu/petitesFaim/{{_id}}" class="btn">
+                    <center>
+                        <img src="/images/images_Petites_Faims/{{imgPetitesFaim}}" alt="">
+                        <p>{{petitesFaimFR}}</p>
+                        <p>
+                            <span class="prixPetitesFaim">{{prixPetitesFaim}}</span><span> DH</span>
+                        </p>
+                    </center>
+                </a>
+            </div>
+            <div class="col-4 col-md-2 boxproduct_salade">
+                <a href="/product_menu/salade/{{_id}}" class="btn">
+                <center>
+                    <img src="/images/images_Salades/{{imgSalade}}" alt="">
+                    <p>{{saladeFR}}</p>
+                    <p>
+                        <span class="prixSalade">{{prixSalade}}</span><span> DH</span>
+                    </p>
+                </center>
+                </a>
+            </div>
+            <div class="col-4 col-md-2 boxproduct_dessert">
+                <a href="/product_menu/dessert/{{_id}}" class="btn">
+                <center>
+                    <img src="/images/images_Desserts/{{imgDessert}}" alt="">
+                    <p>{{dessertFR}}</p>
+                    <p>
+                        <span class="prixDessert">{{prixDessert}}</span><span> DH</span>
+                    </p>
+                </center>
+                </a>
+            </div>
+            <div class="col-4 col-md-2 boxproduct_frite">
+                <a href="/product_menu/frite/{{_id}}" class="btn">
+                    <center>
+                        <img src="/images/menus_Frites/{{imgFrite}}" alt="">
+                        <p>{{friteFR}}</p>
+                        <p>
+                            <span class="prixFrite">{{prixFrite}}</span><span> DH</span>
+                        </p>
+                    </center>
+                </a>
+            </div>
+            <div class="col-4 col-md-2 boxproduct_sauces">
+                <a href="/product_menu/sauces/{{_id}}" class="btn">
+                    <center>
+                        <img src="/images/menus_Sauces/{{imgSauces}}" alt="">
+                        <p>{{saucesFR}}</p>
+                        <p>
+                            <span class="prixSauces">{{prixSauces}}</span><span> DH</span>
+                        </p>
+                    </center>
+                </a>
+            </div>
+            <div class="col-4 col-md-2 boxproduct_cafe">
+                <a href="/product_menu/cafe/{{_id}}" class="btn">
+                    <center>
+                        <img src="/images/menus_Cafe/{{imgCafe}}" alt="">
+                        <p>{{cafeFR}}</p>
+                        <p>
+                            <span class="prixCafe">{{prixCafe}}</span><span> DH</span>
+                        </p>
+                    </center>
+                </a>
+            </div>
+        {{/each}}
+    </div>
+</div>
+
+    {{!-- LANGUE AN --}}
+<div class="container Langue_AN">
+    <div class="row ">
+        {{#each menus}}
+
+            <div class="col-4 col-md-2 boxproduct_menu">
+                <a href="/product_menu/nameMenu/{{_id}}" class="btn Commander">
+                    <center>
+                        <img src="/images/imagesmenus/{{imgMenu}}" alt="">
+                        <p>{{nameMenuAN}}</p>
+                        <p>
+                            <span class="prixMenu">{{prixMenu}}</span><span> DH</span>
+                        </p>
+                    </center>
+                </a>
+            </div>
+            <div class="col-4 col-md-2 boxproduct_boissons">
+                <a href="/product_menu/boissons/{{_id}}" class="btn Commander">
+                    <center>
+                        <img src="/images/images_Boissons/{{imgBoissons}}" alt="">
+                        <p>{{boissonsAN}}</p>
+                        <p>
+                            <span class="prixBoissons">{{prixBoissons}}</span><span> DH</span>
+                        </p>
+                    </center>
+                </a>
+            </div>
+
+            <div class="col-4 col-md-2 boxproduct_sandwich">
+                <a href="/product_menu/sandwich/{{_id}}" class="btn">
+                    <center>
+                        <img src="/images/Images_Sandwichs/{{imgSandwich}}" alt="">
+                        <p>{{sandwichAN}}</p>
+                        <center>
+                            <span class="prixSandwich">{{prixSandwich}}</span><span> DH</span>
+                        </center>
+                    </center>
+                </a>
+            </div>
+            <div class="col-4 col-md-2 boxproduct_petitesFaim">
+                <a href="/product_menu/petitesFaim/{{_id}}" class="btn">
+                    <center>
+                        <img src="/images/images_Petites_Faims/{{imgPetitesFaim}}" alt="">
+                        <p>{{petitesFaimAN}}</p>
+                        <p>
+                            <span class="prixPetitesFaim">{{prixPetitesFaim}}</span><span> DH</span>
+                        </p>
+                    </center>
+                </a>
+            </div>
+            <div class="col-4 col-md-2 boxproduct_salade">
+                <a href="/product_menu/salade/{{_id}}" class="btn">
+                    <center>
+                        <img src="/images/images_Salades/{{imgSalade}}" alt="">
+                        <p>{{saladeAN}}</p>
+                        <center>
+                            <span class="prixSalade">{{prixSalade}}</span><span> DH</span>
+                        </center>
+                    </center>
+                </a>
+            </div>
+            <div class="col-4 col-md-2 boxproduct_dessert">
+                <a href="/product_menu/dessert/{{_id}}" class="btn">
+                    <center>
+                        <img src="/images/images_Desserts/{{imgDessert}}" alt="">
+                        <p>{{dessertAN}}</p>
+                        <p>
+                            <span class="prixDessert">{{prixDessert}}</span><span> DH</span>
+                        </p>
+                    </center>
+                </a>
+            </div>
+            <div class="col-4 col-md-2 boxproduct_frite">
+                <a href="/product_menu/frite/{{_id}}" class="btn">
+                    <center>
+                        <img src="/images/menus_Frites/{{imgFrite}}" alt="">
+                        <p>{{friteAN}}</p>
+                        <p>
+                            <span class="prixFrite">{{prixFrite}}</span><span> DH</span>
+                        </p>
+                    </center>
+                </a>
+            </div>
+            <div class="col-4 col-md-2 boxproduct_sauces">
+                <a href="/product_menu/sauces/{{_id}}" class="btn">
+                    <center>
+                        <img src="/images/menus_Sauces/{{imgSauces}}" alt="">
+                        <p>{{saucesAN}}</p>
+                        <p>
+                            <span class="prixSauces">{{prixSauces}}</span><span> DH</span>
+                        </p>
+                    </center>
+                </a>
+            </div>
+            <div class="col-4 col-md-2 boxproduct_cafe">
+                <a href="/product_menu/cafe/{{_id}}" class="btn">
+                    <center>
+                        <img src="/images/menus_Cafe/{{imgCafe}}" alt="">
+                        <p>{{cafeAN}}</p>
+                        <p>
+                            <span class="prixCafe">{{prixCafe}}</span><span> DH</span>
+                        </p>
+                    </center>
+                </a>
+            </div>
+        {{/each}}
+    </div>
+</div>
+
+    {{!-- LANGUE AR --}}
+<div class="container Langue_AR">
+    <div class="row ">
+        {{#each menus}}
+
+            <div class="col-4 col-md-2 boxproduct_menu">
+                <a href="/product_menu/nameMenu/{{_id}}" class="btn Commander">
+                    <center>
+                        <img src="/images/imagesmenus/{{imgMenu}}" alt="">
+                    <p>{{nameMenuAR}}</p>
+                    <p>
+                        <span class="prixMenu">{{prixMenu}}</span><span> DH</span>
+                    </p>
+                    </center>
+                </a>
+            </div>
+            <div class="col-4 col-md-2 boxproduct_boissons">
+                <a href="/product_menu/boissons/{{_id}}" class="btn Commander">
+                <center>
+                    <img src="/images/images_Boissons/{{imgBoissons}}" alt="">
+                    <p>{{boissonsAR}}</p>
+                    <p>
+                        <span class="prixBoissons">{{prixBoissons}}</span><span> DH</span>
+                    </p>
+                </center>
+                </a>
+            </div>
+
+            <div class="col-4 col-md-2 boxproduct_sandwich">
+                <a href="/product_menu/sandwich/{{_id}}" class="btn">
+                    <center>
+                        <img src="/images/Images_Sandwichs/{{imgSandwich}}" alt="">
+                        <p>{{sandwichAR}}</p>
+                        <p>
+                            <span class="prixSandwich">{{prixSandwich}}</span><span>DH</span>
+                        </p>
+                    </center>
+                </a>
+            </div>
+            <div class="col-4 col-md-2 boxproduct_petitesFaim">
+                <a href="/product_menu/petitesFaim/{{_id}}" class="btn">
+                    <center>
+                        <img src="/images/images_Petites_Faims/{{imgPetitesFaim}}" alt="">
+                        <p>{{petitesFaimAR}}</p>
+                        <p>
+                            <span class="prixPetitesFaim">{{prixPetitesFaim}}</span><span> DH</span>
+                        </p>
+                    </center>
+                </a>
+            </div>
+            <div class="col-4 col-md-2 boxproduct_salade">
+                <a href="/product_menu/salade/{{_id}}" class="btn">
+                    <center>
+                        <img src="/images/images_Salades/{{imgSalade}}" alt="">
+                        <p>{{saladeAR}}</p>
+                        <span class="prixSalade">{{prixSalade}}</span><span> DH</span>
+                    </center>
+                </a>
+            </div>
+            <div class="col-4 col-md-2 boxproduct_dessert">
+                <a href="/product_menu/dessert/{{_id}}" class="btn">
+                    <center>
+                        <img src="/images/images_Desserts/{{imgDessert}}" alt="">
+                        <p>{{dessertAR}}</p>
+                        <p>
+                            <span class="prixDessert">{{prixDessert}}</span><span> DH</span>
+                        </p>
+                    </center>
+                </a>
+            </div>
+            <div class="col-4 col-md-2 boxproduct_frite">
+                <a href="/product_menu/frite/{{_id}}" class="btn">
+                    <center>
+                        <img src="/images/menus_Frites/{{imgFrite}}" alt="">
+                        <p>{{friteAR}}</p>
+                        <p>
+                            <span class="prixFrite">{{prixFrite}}</span><span> DH</span>
+                        </p>
+                    </center>
+                </a>
+            </div>
+            <div class="col-4 col-md-2 boxproduct_sauces">
+                <a href="/product_menu/sauces/{{_id}}" class="btn">
+                    <img src="/images/menus_Sauces/{{imgSauces}}" alt="">
+                    <p>{{saucesAR}}</p>
+                    <p>
+                        <span class="prixSauces">{{prixSauces}}</span><span> DH</span>
+                    </p>
+                </a>
+            </div>
+            <div class="col-4 col-md-2 boxproduct_cafe">
+                <a href="/product_menu/cafe/{{_id}}" class="btn">
+                    <center>
+                        <img src="/images/menus_Cafe/{{imgCafe}}" alt="">
+                        <p>{{cafeAR}}</p>
+                        <p>
+                            <span class="prixCafe">{{prixCafe}}</span><span> DH</span>
+                        </p>
+                    </center>
+                </a>
+            </div>
+        {{/each}}
+    </div>
+
+</div>
+<script>
+    var Tout = document.getElementById("Tout");
+    var Nos_Menus = document.getElementById("Nos_Menus");
+    var Nos_Sandwichs = document.getElementById("Nos_Sandwichs");
+    var Petites_faims = document.getElementById("Petites_faims");
+    var Nos_salades = document.getElementById("Nos_salades");
+    var Nos_desserts = document.getElementById("Nos_desserts");
+    var Nos_boissons = document.getElementById("Nos_boissons");
+    var Nos_frites = document.getElementById("Nos_frites");
+    var Nos_sauces = document.getElementById("Nos_sauces");
+    var McCafe = document.getElementById("McCafe");
+
+    var Langue_FR =document.getElementsByClassName("Langue_FR");
+    var Langue_AN =document.getElementsByClassName("Langue_AN");
+    var Langue_AR =document.getElementsByClassName("Langue_AR");
+
+    var menu = document.getElementsByClassName("boxproduct_menu");
+    var boissons = document.getElementsByClassName("boxproduct_boissons");
+    var sandwich = document.getElementsByClassName("boxproduct_sandwich");
+    var petitesFaim = document.getElementsByClassName("boxproduct_petitesFaim");
+    var salade = document.getElementsByClassName("boxproduct_salade");
+    var dessert = document.getElementsByClassName("boxproduct_dessert");
+    var frite = document.getElementsByClassName("boxproduct_frite");
+    var sauces = document.getElementsByClassName("boxproduct_sauces");
+    var cafe = document.getElementsByClassName("boxproduct_cafe");
+    var i;
+
+    function onload_start(){
+
+        //alert(sessionStorage.getItem("modeCommande"));
+
+        if (typeof(Storage) !== "undefined") {
+            // Retrieve
+            //FRANCAIS
+            if(sessionStorage.getItem("langue") == "FR"){
+
+                for (i = 0; i < Langue_FR.length; i++) {
+                    Langue_FR[i].style.display = 'block';
+                }
+                for (i = 0; i < Langue_AN.length; i++) {
+                    Langue_AN[i].style.display = 'none';
+                }
+                for (i = 0; i < Langue_AR.length; i++) {
+                    Langue_AR[i].style.display = 'none';
+                }
+
+                Tout.innerHTML = "Tout";
+                Nos_Menus.innerHTML = "Nos Menus";
+                Nos_Sandwichs.innerHTML = "Nos Sandwichs";
+                Petites_faims.innerHTML = "Petites faims";
+                Nos_salades.innerHTML = "Nos salades";
+                Nos_desserts.innerHTML = "Nos desserts";
+                Nos_boissons.innerHTML = "Nos boissons";
+                Nos_frites.innerHTML = "Nos frites";
+                Nos_sauces.innerHTML = "Nos sauces";
+                McCafe.innerHTML = "Nos Café";
+                document.getElementById("texts_Langue").innerHTML = "Langue";
+                document.getElementById("text_navbar_panier").innerHTML = "panier : ";
+                document.getElementById("text_navbar_Langue").innerHTML = "Langue";
+                document.getElementById("text_navbar_Accueil").innerHTML = "Accueil / Tous";
+                
+            }else if(sessionStorage.getItem("langue") == "AN"){
+                //ANGLISH
+                for (i = 0; i < Langue_FR.length; i++) {
+                    Langue_FR[i].style.display = 'none';
+                }
+                for (i = 0; i < Langue_AN.length; i++) {
+                    Langue_AN[i].style.display = 'block';
+                }
+                for (i = 0; i < Langue_AR.length; i++) {
+                    Langue_AR[i].style.display = 'none';
+                }
+
+                Tout.innerHTML = "All";
+                Nos_Menus.innerHTML = "Our menus";
+                Nos_Sandwichs.innerHTML = "Our Sandwiches";
+                Petites_faims.innerHTML = "Small appetites";
+                Nos_salades.innerHTML = "Our salads";
+                Nos_desserts.innerHTML = "Our desserts";
+                Nos_boissons.innerHTML = "Our drinks";
+                Nos_frites.innerHTML = "Our fries";
+                Nos_sauces.innerHTML = "Our sauces";
+                McCafe.innerHTML = "Our Coffee";
+                document.getElementById("texts_Langue").innerHTML = "Language";
+                document.getElementById("text_navbar_panier").innerHTML = "basket : ";
+                document.getElementById("text_navbar_Langue").innerHTML = "Language";
+                document.getElementById("text_navbar_Accueil").innerHTML = "Home / All";
+            }else if(sessionStorage.getItem("langue") == "AR"){
+                //ARABE
+                for (i = 0; i < Langue_FR.length; i++) {
+                    Langue_FR[i].style.display = 'none';
+                }
+                for (i = 0; i < Langue_AN.length; i++) {
+                    Langue_AN[i].style.display = 'none';
+                }
+                for (i = 0; i < Langue_AR.length; i++) {
+                    Langue_AR[i].style.display = 'block';
+                }
+                Tout.innerHTML = "الكل";
+                Nos_Menus.innerHTML = "قوائمنا";
+                Nos_Sandwichs.innerHTML = "شطائرنا";
+                Petites_faims.innerHTML = "القليل من الجوع";
+                Nos_salades.innerHTML = "سلطاتنا";
+                Nos_desserts.innerHTML = "حلوياتنا";
+                Nos_boissons.innerHTML = "مشروباتنا";
+                Nos_frites.innerHTML = "البطاطس المقلية";
+                Nos_sauces.innerHTML = "صلصاتنا";
+                McCafe.innerHTML = "قهوتنا";
+                document.getElementById("texts_Langue").innerHTML = "اللغة";
+                document.getElementById("text_navbar_panier").innerHTML = "السلة : ";
+                document.getElementById("text_navbar_Langue").innerHTML = "اللغة";
+                document.getElementById("text_navbar_Accueil").innerHTML = "القائمة رئيسية / الكل";
+            }
+        } else {
+            alert("Sorry, your browser does not support Web Storage...");
+        }
+    }
+
+    function FR(){
+        for (i = 0; i < Langue_FR.length; i++) {
+            Langue_FR[i].style.display = 'block';
+        }
+       for (i = 0; i < Langue_AN.length; i++) {
+            Langue_AN[i].style.display = 'none';
+        }
+       for (i = 0; i < Langue_AR.length; i++) {
+            Langue_AR[i].style.display = 'none';
+        }
+        if (typeof(Storage) !== "undefined") {
+            // Store
+            sessionStorage.setItem("langue", "FR");
+        } else {
+            alert("Sorry, your browser does not support Web Storage...");
+        }
+        Tout.innerHTML = "Tout";
+        Nos_Menus.innerHTML = "Nos Menus";
+        Nos_Sandwichs.innerHTML = "Nos Sandwichs";
+        Petites_faims.innerHTML = "Petites faims";
+        Nos_salades.innerHTML = "Nos salades";
+        Nos_desserts.innerHTML = "Nos desserts";
+        Nos_boissons.innerHTML = "Nos boissons";
+        Nos_frites.innerHTML = "Nos frites";
+        Nos_sauces.innerHTML = "Nos sauces";
+        McCafe.innerHTML = "Nos Café";
+        document.getElementById("texts_Langue").innerHTML = "Langue";
+        sessionStorage.setItem("langue", "FR");
+        document.getElementById("text_navbar_panier").innerHTML = "panier : ";
+        document.getElementById("text_navbar_Langue").innerHTML = "Langue";
+        document.getElementById("text_navbar_Accueil").innerHTML = "Accueil / Tous";
+
+    }
+
+    function AN(){
+        for (i = 0; i < Langue_FR.length; i++) {
+            Langue_FR[i].style.display = 'none';
+        }
+       for (i = 0; i < Langue_AN.length; i++) {
+            Langue_AN[i].style.display = 'block';
+        }
+       for (i = 0; i < Langue_AR.length; i++) {
+            Langue_AR[i].style.display = 'none';
+        }
+        if (typeof(Storage) !== "undefined") {
+            // Store
+            sessionStorage.setItem("langue", "AN");
+        } else {
+            alert("Sorry, your browser does not support Web Storage...");
+        }
+        Tout.innerHTML = "All";
+        Nos_Menus.innerHTML = "Our menus";
+        Nos_Sandwichs.innerHTML = "Our Sandwiches";
+        Petites_faims.innerHTML = "Small appetites";
+        Nos_salades.innerHTML = "Our salads";
+        Nos_desserts.innerHTML = "Our desserts";
+        Nos_boissons.innerHTML = "Our drinks";
+        Nos_frites.innerHTML = "Our fries";
+        Nos_sauces.innerHTML = "Our sauces";
+        McCafe.innerHTML = "Our Coffee";
+        document.getElementById("texts_Langue").innerHTML = "Language";
+        sessionStorage.setItem("langue", "AN");
+        document.getElementById("text_navbar_panier").innerHTML = "basket : ";
+        document.getElementById("text_navbar_Langue").innerHTML = "Language";
+        document.getElementById("text_navbar_Accueil").innerHTML = "Home / All";
+    }
+
+    function AR(){
+        for (i = 0; i < Langue_FR.length; i++) {
+            Langue_FR[i].style.display = 'none';
+        }
+       for (i = 0; i < Langue_AN.length; i++) {
+            Langue_AN[i].style.display = 'none';
+        }
+       for (i = 0; i < Langue_AR.length; i++) {
+            Langue_AR[i].style.display = 'block';
+        }
+        Tout.innerHTML = "الكل";
+        Nos_Menus.innerHTML = "قوائمنا";
+        Nos_Sandwichs.innerHTML = "شطائرنا";
+        Petites_faims.innerHTML = "القليل من الجوع";
+        Nos_salades.innerHTML = "سلطاتنا";
+        Nos_desserts.innerHTML = "حلوياتنا";
+        Nos_boissons.innerHTML = "مشروباتنا";
+        Nos_frites.innerHTML = "البطاطس المقلية";
+        Nos_sauces.innerHTML = "صلصاتنا";
+        McCafe.innerHTML = "قهوتنا";
+        document.getElementById("texts_Langue").innerHTML = "اللغة";
+
+        if (typeof(Storage) !== "undefined") {
+            // Store
+            sessionStorage.setItem("langue", "AR");
+        } else {
+            alert("Sorry, your browser does not support Web Storage...");
+        }
+        sessionStorage.setItem("langue", "AR");
+        document.getElementById("text_navbar_panier").innerHTML = "السلة : ";
+        document.getElementById("text_navbar_Langue").innerHTML = "اللغة";
+        document.getElementById("text_navbar_Accueil").innerHTML = "القائمة رئيسية / الكل";
+    }
+
+
+
+    function show_tout(){
+
+        for (i = 0; i < menu.length; i++) {
+            menu[i].style.display = 'block';
+        }
+        for (i = 0; i < boissons.length; i++) {
+            boissons[i].style.display = 'block';
+        }
+        for (i = 0; i < sandwich.length; i++) {
+            sandwich[i].style.display = 'block';
+        }
+        for (i = 0; i < petitesFaim.length; i++) {
+            petitesFaim[i].style.display = 'block';
+        }
+        for (i = 0; i < salade.length; i++) {
+            salade[i].style.display = 'block';
+        }
+        for (i = 0; i < dessert.length; i++) {
+            dessert[i].style.display = 'block';
+        }
+        for (i = 0; i < frite.length; i++) {
+            frite[i].style.display = 'block';
+        }
+        for (i = 0; i < sauces.length; i++) {
+            sauces[i].style.display = 'block';
+        }
+        for (i = 0; i < cafe.length; i++) {
+            cafe[i].style.display = 'block';
+        }
+    }
+
+    function show_menus(){
+        
+        for (i = 0; i < menu.length; i++) {
+            menu[i].style.display = 'block';
+        }
+        for (i = 0; i < boissons.length; i++) {
+            boissons[i].style.display = 'none';
+        }
+        for (i = 0; i < sandwich.length; i++) {
+            sandwich[i].style.display = 'none';
+        }
+        for (i = 0; i < petitesFaim.length; i++) {
+            petitesFaim[i].style.display = 'none';
+        }
+        for (i = 0; i < salade.length; i++) {
+            salade[i].style.display = 'none';
+        }
+        for (i = 0; i < dessert.length; i++) {
+            dessert[i].style.display = 'none';
+        }
+        for (i = 0; i < frite.length; i++) {
+            frite[i].style.display = 'none';
+        }
+        for (i = 0; i < sauces.length; i++) {
+            sauces[i].style.display = 'none';
+        }
+        for (i = 0; i < cafe.length; i++) {
+            cafe[i].style.display = 'none';
+        }
+    }
+
+    function show_sandwichs(){
+        
+        for (i = 0; i < menu.length; i++) {
+            menu[i].style.display = 'none';
+        }
+        for (i = 0; i < boissons.length; i++) {
+            boissons[i].style.display = 'none';
+        }
+        for (i = 0; i < sandwich.length; i++) {
+            sandwich[i].style.display = 'block';
+        }
+        for (i = 0; i < petitesFaim.length; i++) {
+            petitesFaim[i].style.display = 'none';
+        }
+        for (i = 0; i < salade.length; i++) {
+            salade[i].style.display = 'none';
+        }
+        for (i = 0; i < dessert.length; i++) {
+            dessert[i].style.display = 'none';
+        }
+        for (i = 0; i < frite.length; i++) {
+            frite[i].style.display = 'none';
+        }
+        for (i = 0; i < sauces.length; i++) {
+            sauces[i].style.display = 'none';
+        }
+        for (i = 0; i < cafe.length; i++) {
+            cafe[i].style.display = 'none';
+        }
+    }
+
+    function show_Petites_faims(){
+        
+        for (i = 0; i < menu.length; i++) {
+            menu[i].style.display = 'none';
+        }
+        for (i = 0; i < boissons.length; i++) {
+            boissons[i].style.display = 'none';
+        }
+        for (i = 0; i < sandwich.length; i++) {
+            sandwich[i].style.display = 'none';
+        }
+        for (i = 0; i < petitesFaim.length; i++) {
+            petitesFaim[i].style.display = 'block';
+        }
+        for (i = 0; i < salade.length; i++) {
+            salade[i].style.display = 'none';
+        }
+        for (i = 0; i < dessert.length; i++) {
+            dessert[i].style.display = 'none';
+        }
+        for (i = 0; i < frite.length; i++) {
+            frite[i].style.display = 'none';
+        }
+        for (i = 0; i < sauces.length; i++) {
+            sauces[i].style.display = 'none';
+        }
+        for (i = 0; i < cafe.length; i++) {
+            cafe[i].style.display = 'none';
+        }
+    }
+
+    function show_salades(){
+        
+        for (i = 0; i < menu.length; i++) {
+            menu[i].style.display = 'none';
+        }
+        for (i = 0; i < boissons.length; i++) {
+            boissons[i].style.display = 'none';
+        }
+        for (i = 0; i < sandwich.length; i++) {
+            sandwich[i].style.display = 'none';
+        }
+        for (i = 0; i < petitesFaim.length; i++) {
+            petitesFaim[i].style.display = 'none';
+        }
+        for (i = 0; i < salade.length; i++) {
+            salade[i].style.display = 'block';
+        }
+        for (i = 0; i < dessert.length; i++) {
+            dessert[i].style.display = 'none';
+        }
+        for (i = 0; i < frite.length; i++) {
+            frite[i].style.display = 'none';
+        }
+        for (i = 0; i < sauces.length; i++) {
+            sauces[i].style.display = 'none';
+        }
+        for (i = 0; i < cafe.length; i++) {
+            cafe[i].style.display = 'none';
+        }
+    }
+
+    function show_desserts(){
+        
+        for (i = 0; i < menu.length; i++) {
+            menu[i].style.display = 'none';
+        }
+        for (i = 0; i < boissons.length; i++) {
+            boissons[i].style.display = 'none';
+        }
+        for (i = 0; i < sandwich.length; i++) {
+            sandwich[i].style.display = 'none';
+        }
+        for (i = 0; i < petitesFaim.length; i++) {
+            petitesFaim[i].style.display = 'none';
+        }
+        for (i = 0; i < salade.length; i++) {
+            salade[i].style.display = 'none';
+        }
+        for (i = 0; i < dessert.length; i++) {
+            dessert[i].style.display = 'block';
+        }
+        for (i = 0; i < frite.length; i++) {
+            frite[i].style.display = 'none';
+        }
+        for (i = 0; i < sauces.length; i++) {
+            sauces[i].style.display = 'none';
+        }
+        for (i = 0; i < cafe.length; i++) {
+            cafe[i].style.display = 'none';
+        }
+    }
+
+    function show_boissons(){
+        
+        for (i = 0; i < menu.length; i++) {
+            menu[i].style.display = 'none';
+        }
+        for (i = 0; i < boissons.length; i++) {
+            boissons[i].style.display = 'block';
+        }
+        for (i = 0; i < sandwich.length; i++) {
+            sandwich[i].style.display = 'none';
+        }
+        for (i = 0; i < petitesFaim.length; i++) {
+            petitesFaim[i].style.display = 'none';
+        }
+        for (i = 0; i < salade.length; i++) {
+            salade[i].style.display = 'none';
+        }
+        for (i = 0; i < dessert.length; i++) {
+            dessert[i].style.display = 'none';
+        }
+        for (i = 0; i < frite.length; i++) {
+            frite[i].style.display = 'none';
+        }
+        for (i = 0; i < sauces.length; i++) {
+            sauces[i].style.display = 'none';
+        }
+        for (i = 0; i < cafe.length; i++) {
+            cafe[i].style.display = 'none';
+        }
+    }
+
+    function show_frites(){
+        
+        for (i = 0; i < menu.length; i++) {
+            menu[i].style.display = 'none';
+        }
+        for (i = 0; i < boissons.length; i++) {
+            boissons[i].style.display = 'none';
+        }
+        for (i = 0; i < sandwich.length; i++) {
+            sandwich[i].style.display = 'none';
+        }
+        for (i = 0; i < petitesFaim.length; i++) {
+            petitesFaim[i].style.display = 'none';
+        }
+        for (i = 0; i < salade.length; i++) {
+            salade[i].style.display = 'none';
+        }
+        for (i = 0; i < dessert.length; i++) {
+            dessert[i].style.display = 'none';
+        }
+        for (i = 0; i < frite.length; i++) {
+            frite[i].style.display = 'block';
+        }
+        for (i = 0; i < sauces.length; i++) {
+            sauces[i].style.display = 'none';
+        }
+        for (i = 0; i < cafe.length; i++) {
+            cafe[i].style.display = 'none';
+        }
+    }
+
+    function show_sauces(){
+        
+        for (i = 0; i < menu.length; i++) {
+            menu[i].style.display = 'none';
+        }
+        for (i = 0; i < boissons.length; i++) {
+            boissons[i].style.display = 'none';
+        }
+        for (i = 0; i < sandwich.length; i++) {
+            sandwich[i].style.display = 'none';
+        }
+        for (i = 0; i < petitesFaim.length; i++) {
+            petitesFaim[i].style.display = 'none';
+        }
+        for (i = 0; i < salade.length; i++) {
+            salade[i].style.display = 'none';
+        }
+        for (i = 0; i < dessert.length; i++) {
+            dessert[i].style.display = 'none';
+        }
+        for (i = 0; i < frite.length; i++) {
+            frite[i].style.display = 'none';
+        }
+        for (i = 0; i < sauces.length; i++) {
+            sauces[i].style.display = 'block';
+        }
+        for (i = 0; i < cafe.length; i++) {
+            cafe[i].style.display = 'none';
+        }
+    }
+
+    function show_McCafe(){
+        
+        for (i = 0; i < menu.length; i++) {
+            menu[i].style.display = 'none';
+        }
+        for (i = 0; i < boissons.length; i++) {
+            boissons[i].style.display = 'none';
+        }
+        for (i = 0; i < sandwich.length; i++) {
+            sandwich[i].style.display = 'none';
+        }
+        for (i = 0; i < petitesFaim.length; i++) {
+            petitesFaim[i].style.display = 'none';
+        }
+        for (i = 0; i < salade.length; i++) {
+            salade[i].style.display = 'none';
+        }
+        for (i = 0; i < dessert.length; i++) {
+            dessert[i].style.display = 'none';
+        }
+        for (i = 0; i < frite.length; i++) {
+            frite[i].style.display = 'none';
+        }
+        for (i = 0; i < sauces.length; i++) {
+            sauces[i].style.display = 'none';
+        }
+        for (i = 0; i < cafe.length; i++) {
+            cafe[i].style.display = 'block';
+        }
+    }
+</script>
+
+{{!-- end update --}}
